@@ -300,7 +300,6 @@ bot.shuttle = humane.activeTime( humane.coolTime(function( channel ) {
 
     4camel 개드립 셔틀
     */
-    return; // 4camel이 망했다
     var homepage = "http://4camel.net",
         url = homepage + "/xe/?mid=dogdrip";
 
