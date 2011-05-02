@@ -304,9 +304,13 @@ bot.shuttle = humane.activeTime( humane.coolTime(function( channel ) {
         url = homepage + "/xe/?mid=dogdrip";
 
     util.loadHTML( url, function( window, $ ) {
-        var articles = $( ".boardList .bg2" ),
-            article = articles.eq( util.rand( articles.length - 1 ) ),
-            path = article.find( ".title a:eq(0)" ).attr( "href" );
+        try {        
+            var articles = $( ".boardList .bg2" ),
+                article = articles.eq( util.rand( articles.length - 1 ) ),
+                path = article.find( ".title a:eq(0)" ).attr( "href" );
+        } catch ( err ) {
+            return; // 4camel이 죽었으면 스킵
+        }
 
         path = path.replace( /&PHPSESSID.*$/, "" ); // 더미인자 제거
         var url = path.replace( /^/, homepage );
