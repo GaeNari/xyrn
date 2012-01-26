@@ -137,6 +137,7 @@ bot.addListener( "join", function( channel, who ) {
 
 bot.addListener( "message", function( from, to, message ) {
     this.updateStatus( to, message );
+    this.talk( to, "pong" );
 });
 bot.addListener( "message", humane.activeTime(function( from, to, message ) {
     var stat = this.status[ to ],
