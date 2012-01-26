@@ -2,7 +2,7 @@
   "name": "xyrn",
   "version": "0.0.1",
   "dependencies": {
-    "irc": '',
-    "jsdom": ''
+    "irc": "0.3.3",
+    "jsdom": "0.2.10"
   }
 }
