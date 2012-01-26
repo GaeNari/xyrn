@@ -96,10 +96,7 @@ bot.updateStatus = function( channel, message ) {
         now = new Date(),
         match;
 
-    sys.log([ channel, message ]);
-
     if ( match = /ㅋㅋㅋㅋㅋ+/.exec( message ) ) {
-        sys.log( "ㅋㅋㅋ" );
         if ( stat.funniness ) {
             stat.funniness = (stat.funniness + match[ 0 ].length) / 2;
         } else {
@@ -110,7 +107,6 @@ bot.updateStatus = function( channel, message ) {
     }
 
     stat.prosperity++;
-    sys.log([ "prosperity", stat.prosperity ]);
     time.updated = now;
     reportStatus( "prosperity", stat.prosperity );
 };
