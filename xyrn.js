@@ -5,6 +5,7 @@ var http = require( "http" ),
 
     humane = require( "./lib/humane" ),
     util = require( "./lib/util" );
+sys.log( "Hello, world!" );
 
 var xyrnize = module.exports = function xyrnize( bot ) {
 /**:xyrnize( bot )
@@ -136,6 +137,7 @@ bot.addListener( "join", function( channel, who ) {
 });
 
 bot.addListener( "message", function( from, to, message ) {
+    sys.log( "msg: " +  message );
     this.updateStatus( to, message );
 });
 bot.addListener( "message", humane.activeTime(function( from, to, message ) {
