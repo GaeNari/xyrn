@@ -196,7 +196,7 @@ bot.answer = function( from, to, message ) {
 
     상대에 따라 반말 또는 존댓말로 대답
     */
-    var talkDown = /^(subl|홍민희|kijun|치도리)/,
+    var talkDown = /^(subl|홍민희|kijun|치도리|[Cc]hidoli)/,
         mySelf = /(xym?|씸|sorimir)/,
         answers;
     if ( /\?$/.exec( message ) ) {
