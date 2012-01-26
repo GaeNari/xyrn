@@ -1,0 +1,6 @@
+{
+    "server": "irc.ozinger.org",
+    "nick": "xyrn",
+    "channels": [ "#lunant" ],
+    "debug": true
+}

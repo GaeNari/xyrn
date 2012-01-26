@@ -1,0 +1,15 @@
+{
+  "name": "xyrn",
+  "version": "0.0.1",
+  "dependencies": {
+    "htmlparser": "1.7.4",
+    "irc": "0.3.3",
+    "jsdom": "0.2.10",
+    "contextify": "0.0.7",   
+    "cssom": "0.2.2",   
+    "htmlparser": "1.7.4",   
+    "irc": "0.3.3",   
+    "jsdom": "0.2.10",
+    "request": "2.9.100"
+  }
+}
