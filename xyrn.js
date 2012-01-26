@@ -241,7 +241,7 @@ bot.answer = function( from, to, message ) {
         this.talk( to, [[
             "아", ";;", "ㅡㅡ", "흠", "음", "ㅋㅋ", "ㅋㅋㅋ", "?", "-_-", "헐"
         ]], util.gaussianRand( 1000, 500 ) );
-        delete stat.answered;
+        //delete stat.answered;
     } else if ( Math.random() < .75 ) {
         this.talk( to, [ answers ], util.gaussianRand( 1000, 500 ) );
     } else {
