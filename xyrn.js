@@ -196,7 +196,7 @@ bot.answer = function( from, to, message ) {
 
     상대에 따라 반말 또는 존댓말로 대답
     */
-    var talkDown = /^(subl|홍민희|kijun|치도리)/,
+    var talkDown = /^(subl|홍민희|kijun|치도리|[Cc]hidoli)/,
         mySelf = /(xym?|씸|sorimir)/,
         answers;
     if ( /\?$/.exec( message ) ) {
@@ -206,21 +206,25 @@ bot.answer = function( from, to, message ) {
             answers = [
                 "봇이 나한테 질문을 다하넼ㅋㅋ", "아 진짜같닼ㅋㅋ",
                 "이흥섭...이자식...대체 뭘 만들어낸거지", "ㅇㅇ",
-                "넌 닥쳨ㅋㅋㅋㅋㅋㅋ", "ㅋㅋㅋㅋㅋㅋ묻지맠ㅋㅋㅋ"
+                "넌 닥쳨ㅋㅋㅋㅋㅋㅋ", "ㅋㅋㅋㅋㅋㅋ묻지맠ㅋㅋㅋ",
             ];
         } else {
-            answers = [ "네 맞아요", "그럴걸요?", "아마도요", "흠 글쎄요" ];
+            answers = [
+                "네 맞아요", "그럴걸요?", "아마도요", "흠 글쎄요", "운지!", "?"
+            ];
         }
     } else if ( /줘$/.exec( message ) ) {
         if ( talkDown.exec( from ) ) {
-            answers = [ "알겠음", "ㅇㅋ", "ㅋㅋㅋㅇㅋ", "ㅇㅇ", "ok", "응" ];
+            answers = [
+                "알겠음", "ㅇㅋ", "ㅋㅋㅋㅇㅋ", "ㅇㅇ", "ok", "응", "운지!"
+            ];
         } else if ( mySelf.exec( from ) ) {
             answers = [
                 "닥쳐 미친놈앜ㅋㅋㅋㅋㅋㅋ", "아니 넌 닥치라고wwwww",
                 "ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ", "아오wwwwwwwwwwwww"
             ];
         } else {
-            answers = [ "그럴게요", "알겠어요", "네" ];
+            answers = [ "그럴게요", "알겠어요", "네", "운지!" ];
         }
     } else {
         if ( talkDown.exec( from ) ) {
@@ -231,7 +235,8 @@ bot.answer = function( from, to, message ) {
                 "ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ 뭐임ㅋㅋㅋㅋㅋ",
                 "넌 가만히 있어 임맠ㅋㅋㅋㅋㅋㅋ", "얌마",
                 "멍청한 놈은 필요없어", "넌 닥쳐wwwwwwwwww",
-                "닥쳐 미친놈앜ㅋㅋㅋㅋㅋ", "넌 닥쳨ㅋㅋㅋㅋㅋㅋ"
+                "닥쳐 미친놈앜ㅋㅋㅋㅋㅋ", "넌 닥쳨ㅋㅋㅋㅋㅋㅋ",
+                "병신아", "개자식아", "자살해라",
             ];
         } else {
             answers = [ "네", "네?", "음?", "sp?" ];
@@ -308,12 +313,11 @@ bot.shuttle = humane.activeTime( humane.coolTime(function( channel ) {
             var articles = $( ".boardList .bg2" ),
                 article = articles.eq( util.rand( articles.length - 1 ) ),
                 path = article.find( ".title a:eq(0)" ).attr( "href" );
+            path = path.replace( /&PHPSESSID.*$/, "" ); // 더미인자 제거
+            var url = path.replace( /^/, homepage );
         } catch ( err ) {
             return; // 4camel이 죽었으면 스킵
         }
-
-        path = path.replace( /&PHPSESSID.*$/, "" ); // 더미인자 제거
-        var url = path.replace( /^/, homepage );
 
         if ( $.inArray( url, bot.shuttle.history ) < 0 ) { // 뒷북 검사
             util.loadHTML( url, function( window, $ ) {
@@ -431,7 +435,8 @@ bot.distract = humane.activeTime( humane.coolTime(function( channel ) {
         "왤케 집중력 병신이지", "오늘도 왜 이렇게 일이 안되지",
         "아 왜이렇게 일이 하기가 싫지",
         "그래 이렇게 일이나 하고 있으면 내게도 여친이 생기겠지...",
-        "어째 난 분명히 일하고 있었는데 일이 더 생겼군"
+        "어째 난 분명히 일하고 있었는데 일이 더 생겼군", "아 나 주금 으악",
+        "간이 가쓰요",
     ]];
     util.probably( .75, function() {
         this.talk( channel, messages, 3000 );
