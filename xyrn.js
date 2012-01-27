@@ -435,9 +435,11 @@ bot.distract = humane.activeTime( humane.coolTime(function( channel ) {
     var messages = [[
         "왤케 집중력 병신이지", "오늘도 왜 이렇게 일이 안되지",
         "아 왜이렇게 일이 하기가 싫지",
-        "그래 이렇게 일이나 하고 있으면 내게도 여친이 생기겠지...",
+        //"그래 이렇게 일이나 하고 있으면 내게도 여친이 생기겠지...",
         "어째 난 분명히 일하고 있었는데 일이 더 생겼군", "아 나 주금 으악",
         "간이 가쓰요",
+        "내게 여친 따윈 필요없어 내겐 일이 있으니까",
+        "아으아아", "xymz: 죽어"
     ]];
     util.probably( .75, function() {
         this.talk( channel, messages, 3000 );
