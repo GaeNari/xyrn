@@ -81,7 +81,7 @@ bot.initStatus = function( channel ) {
                 }
             }
 
-            util.probably( .25, function() {
+            util.probably( .05, function() {
                 bot.emit( "period", channel );
             });
         };
@@ -162,7 +162,7 @@ bot.addListener( "message", humane.activeTime(function( from, to, message ) {
     }
 
     if ( /ㅋㅋㅋ+/.exec( message ) && stat.funniness > 5 ) {
-        util.probably( stat.prosperity / 5, function() {
+        util.probably( stat.prosperity / 10, function() {
             this.giggle.apply( this, arguments );
 
             // 10% 확률로 화기애애수치 초기화
@@ -196,7 +196,7 @@ bot.answer = function( from, to, message ) {
 
     상대에 따라 반말 또는 존댓말로 대답
     */
-    var talkDown = /^(subl|홍민희|kijun|치도리|[Cc]hidoli)/,
+    var talkDown = /^(subl|홍민희|kijun|치도리|[Cc]hidoli|hong|jyp)/,
         mySelf = /(xym?|씸|sorimir)/,
         answers;
     if ( /\?$/.exec( message ) ) {
@@ -207,6 +207,7 @@ bot.answer = function( from, to, message ) {
                 "봇이 나한테 질문을 다하넼ㅋㅋ", "아 진짜같닼ㅋㅋ",
                 "이흥섭...이자식...대체 뭘 만들어낸거지", "ㅇㅇ",
                 "넌 닥쳨ㅋㅋㅋㅋㅋㅋ", "ㅋㅋㅋㅋㅋㅋ묻지맠ㅋㅋㅋ",
+                "미친 나의 역할을 다 하고 있다니 이럴수가"
             ];
         } else {
             answers = [
