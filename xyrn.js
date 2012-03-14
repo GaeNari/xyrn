@@ -132,6 +132,7 @@ bot.addListener( "kick", function( channel, who, by, reason ) {
 bot.addListener( "join", function( channel, who ) {
     if ( this.nick === who ) {
         this.initStatus( channel );
+        this.talk( channel, [[ "hongminhee, 야 나 만든 사람 게이 아님" ]]);
     }
 });
 
