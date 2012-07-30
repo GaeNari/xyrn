@@ -274,7 +274,8 @@ bot.shoot = function( from, to, message ) {
         "전방을 향하여 힘찬 함성 " + util.rand(3, 10) + "초 간 발사!",
         "전방을 향하여 힘찬 함성 " + util.rand(60, 600) + "초 간 발사!",
         "ㅇㅈ발사", "ㅇㅅㅇ", "인중발사", "인증발사", "소변발사",
-        "위성발사", "포탄발사", "재석 선배 맥북에어 발사", "역장발사"
+        "위성발사", "포탄발사", "재석 선배 맥북에어 발사", "역장발사",
+        "똥은 오줌이야! 오줌이라구!!! 히히 사람발사!"
     ]];
     this.talk( to, messages );
 
@@ -342,7 +343,7 @@ bot.shuttle = humane.activeTime( humane.coolTime(function( channel ) {
 bot.shuttle.history = [];
 
 bot.github = humane.activeTime( humane.coolTime(function( channel ) {
-    var projects = [ "lessipy" ],
+    var projects = [ "gaedripkr" ],
         project = util.choice( projects ),
         nick = project + "-github",
         githubBot = new this.constructor( this.opt.server, nick, {
@@ -367,7 +368,7 @@ bot.github = humane.activeTime( humane.coolTime(function( channel ) {
                 "Deleted deprecated tests", "Added Accessor, Mixin, Ruleset",
                 "modified parser, added some ast", "Very many changes",
                 "modified parser", "changed classifiers, and etc",
-                "Changed license"
+                "Changed license", "Less is more but sometimes not"
             ]);
 
         for ( var i = 0; i < 7; i++ ) {
@@ -440,7 +441,8 @@ bot.distract = humane.activeTime( humane.coolTime(function( channel ) {
         "어째 난 분명히 일하고 있었는데 일이 더 생겼군", "아 나 주금 으악",
         "간이 가쓰요",
         "내게 여친 따윈 필요없어 내겐 일이 있으니까",
-        "아으아아", "xymz: 죽어"
+        "아으아아", "xymz: 죽어", "내 첫사랑은 첫사랑니보다 아파~",
+        "나 몰라 ~ 몰라 ~ 이 벌레같은 사랑~"
     ]];
     util.probably( .75, function() {
         this.talk( channel, messages, 3000 );
