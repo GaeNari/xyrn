@@ -192,7 +192,7 @@ bot.addListener( "message", humane.activeTime(function( from, to, message ) {
         util.probably( probability, function() {
             this.history[ to ] = [];
             this.talk( to, [[ message ]], util.gaussianRand( 1000, 500 ) );
-        );
+        });
     }
     this.history[ to ].shift();
     this.history[ to ].push( message );
