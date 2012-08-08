@@ -191,7 +191,7 @@ bot.addListener( "message", humane.activeTime(function( from, to, message ) {
         util.probably( probability, function( message ) {
             this.history[ to ] = [];
             this.talk( to, [[ message ]], util.gaussianRand( 1000, 500 ) );
-        }, this, message );
+        }, this, [ message ]);
     }
     if ( this.history[ to ].length > 10 ) {
         this.history[ to ].shift();
