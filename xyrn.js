@@ -171,6 +171,31 @@ bot.addListener( "message", humane.activeTime(function( from, to, message ) {
             }, this );
         }, this, arguments );
     }
+
+    // 반복되는 말 따라하기
+    if ( this.history === undefined ) {
+        this.history = {};
+    }
+    if ( this.history[ to ] === undefined ) {
+        this.history[ to ] = [];
+    } else {
+        var repeated = 0;
+        for ( var i = this.history[ to ].length - 1; i >= 0; --i ) {
+            if ( message !== this.history[ i ] ) {
+                break;
+            }
+            repeated++;
+        }
+        var probability = Math.pow(
+            Math.cos( Math.PI * (1 + (Math.min( repeated, 10 ) / 20)) ) + 1, 2
+        );
+        util.probably( probability, function() {
+            this.history[ to ] = [];
+            this.talk( to, [[ message ]], util.gaussianRand( 1000, 500 ) );
+        );
+    }
+    this.history[ to ].shift();
+    this.history[ to ].push( message );
 }, [
     { hours: "9-12,13-18", day: "1-5" } // 평일 점심시간 제외한 근무시간
 ]) );
