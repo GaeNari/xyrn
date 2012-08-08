@@ -186,15 +186,16 @@ bot.addListener( "message", humane.activeTime(function( from, to, message ) {
             }
             repeated++;
         }
-        var probability = Math.pow(
-            Math.cos( Math.PI * (1 + (Math.min( repeated, 10 ) / 20)) ) + 1, 2
-        );
+        var probability = 1;
+            //Math.cos( Math.PI * (1 + repeated / 20)) ) + 1;
         util.probably( probability, function() {
             this.history[ to ] = [];
             this.talk( to, [[ message ]], util.gaussianRand( 1000, 500 ) );
         });
     }
-    this.history[ to ].shift();
+    if ( this.history[ to ].length > 10 ) {
+        this.history[ to ].shift();
+    }
     this.history[ to ].push( message );
 }, [
     { hours: "9-12,13-18", day: "1-5" } // 평일 점심시간 제외한 근무시간
