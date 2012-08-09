@@ -185,7 +185,8 @@ bot.addListener( "message", humane.activeTime(function( from, to, message ) {
                 repeated++;
             }
         }
-        util.probably( (repeated - 1) * 0.1, function( message ) {
+        var probability = Math.min( 1, (repeated - 1) * 0.3 );
+        util.probably( probability, function( message ) {
             this.history[ to ] = [];
             this.talk( to, [[ message ]], util.gaussianRand( 1000, 500 ) );
         }, this, [ message ]);
