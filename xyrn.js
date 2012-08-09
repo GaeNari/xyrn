@@ -180,11 +180,10 @@ bot.addListener( "message", humane.activeTime(function( from, to, message ) {
         this.history[ to ] = [];
     } else {
         var repeated = 0;
-        for ( var i = this.history[ to ].length - 1; i >= 0; --i ) {
-            if ( message !== this.history[ i ] ) {
-                break;
+        for ( var i = 0; i < this.history[ to ].length; ++i ) {
+            if ( message === this.history[ i ] ) {
+                repeated++;
             }
-            repeated++;
         }
         util.probably( (repeated - 1) * 0.1, function( message ) {
             this.history[ to ] = [];
