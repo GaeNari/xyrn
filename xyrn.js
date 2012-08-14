@@ -179,17 +179,17 @@ bot.addListener( "message", humane.activeTime(function( from, to, message ) {
     if ( this.history[ to ] === undefined ) {
         this.history[ to ] = [];
     } else {
-        var repeated = 0;
+        var repeated = 1;
         for ( var i = 0; i < this.history[ to ].length; ++i ) {
             if ( message === this.history[ i ] ) {
                 repeated++;
             }
         }
         var probability = Math.min( 1, (repeated - 1) * 0.3 );
-        util.probably( probability, function( message ) {
+        util.probably( probability, function( from, to, message ) {
             this.history[ to ] = [];
             this.talk( to, [[ message ]], util.gaussianRand( 1000, 500 ) );
-        }, this, [ message ]);
+        }, this, arguments );
     }
     if ( this.history[ to ].length > 10 ) {
         this.history[ to ].shift();
